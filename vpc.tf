@@ -7,3 +7,10 @@ resource "aws_vpc" "default" {
 	environment = "Development"
     }
 }
+
+resource "aws_internet_gateway" "default" {
+    vpc_id = "${aws_vpc.default.id}"
+	tags = {
+        Name = "DevopsB16-IGW"
+    }
+}
